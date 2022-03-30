@@ -1,6 +1,7 @@
 package com.example.bio4;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,23 +22,26 @@ public class HelloController {
     private ImageView imageOrginal;
 
     @FXML
-    private ImageView medianImage;
+    private ImageView imgOutput;
 
     @FXML
-    private ImageView pixImage;
+    private Button load;
 
     @FXML
-    private ImageView araraImage;
+    private Button mediana;
+
+    @FXML
+    private Button pikxelizacja;
 
     @FXML
     protected void onLoadButtonClick() throws IOException {
         final FileChooser fc = new FileChooser();
         fc.setInitialDirectory(new File(System.getProperty("user.home")));
-        selectedFile = fc.showOpenDialog(test.getScene().getWindow());
+        selectedFile = fc.showOpenDialog(imgOutput.getScene().getWindow());
         Image img = new Image(selectedFile.getPath());
-        imageOrginal.setImage(img);
-        imageOrginal.setFitWidth(200);
-        imageOrginal.setFitHeight(150);
+        imgOutput.setImage(img);
+        imgOutput.setFitWidth(450);
+        imgOutput.setFitHeight(400);
         width = (int)img.getWidth();
         height = (int)img.getHeight();
         Mediana(15,-1.5);
